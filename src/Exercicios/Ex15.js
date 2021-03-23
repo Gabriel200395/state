@@ -89,7 +89,7 @@ function Ex15() {
       <div>
         {fildsCampos.map(({ id, label, type }) => (
           <div key={id}>
-            <labe>{label}</labe>
+            <label>{label}</label>
             <input
               type={type}
               name={id}
