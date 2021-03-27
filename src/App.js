@@ -1,9 +1,9 @@
-import Ex18 from "./Exercicios/Ex18";
+import Ex01 from "./ExerciciosDecisao/Ex01";
 
 function App() {
   return (
     <>
-      <Ex18 />
+      <Ex01 />
     </>
   );
 }
