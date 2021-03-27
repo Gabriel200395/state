@@ -8,7 +8,7 @@ function Ex03() {
     setSexoValid(
       (sexo === "F" && "femenino") ||
         (sexo === "M" && "masculino") ||
-        (sexo != "F" || sexo != "M" ? "sexo invalido" : "")
+        (sexo !== "F" || sexo !== "M" ? "sexo invalido" : "")
     );
   };
 
@@ -25,7 +25,7 @@ function Ex03() {
         onChange={({ target }) => setSexo(target.value)}
       />
       <button onClick={validar}>v</button>
-      <button onClick={reset}>v</button>
+      <button onClick={reset}>r</button>
     </div>
   );
 }
