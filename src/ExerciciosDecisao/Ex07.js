@@ -1,34 +1,41 @@
-import { useState } from "react";
+import { useDebugValue, useState } from "react";
 
-function Ex05() {
-  const [notaOne, setNotoNone] = useState("");
-  const [notaTwo, setNotoTwo] = useState("");
-  const [valid, setValid] = useState("");
+function Ex07() {
+  const [produtos, setProdutos] = useState([
+    { tenis: 60 + " R$" },
+    { camisa: 20 + " R$" },
+    { calca: 80 + " R$" },
+  ]);
 
-  const calcularMedia = () => {
-    const nota =
-      +notaOne + +notaTwo >= 7 && +notaOne + +notaTwo < 10 && "aprovado";
-    const maior = +notaOne + +notaTwo > 10 && "aprovado distincao";
-    const reprovado = +notaOne + +notaTwo < 7 && "reprovado";
-    setValid(nota || maior || reprovado);
+  const [produto, setProduto] = useState("");
+  const [preco, setPreco] = useState("");
+
+  const handleChange = ({ target }) => {
+    setProduto(target.value);
+  };
+
+  const mostrarPreco = () => {
+    const [a, b, c] = produtos;
+
+    const tenis = produto === "tenis" && a.tenis;
+    const camisa =
+      produto === "camisa" && b.camisa + " esse produto e o mais barato!!!";
+    const calca = produto === "calca" && c.calca;
+    const naoValido =
+      produto !== tenis || produto !== camisa || produto !== calca
+        ? "produto invalido!!"
+        : "";
+
+    setPreco(tenis || camisa || calca || naoValido);
   };
 
   return (
     <div>
-      {valid}
-      <input
-        type="number"
-        value={notaOne}
-        onChange={({ target }) => setNotoNone(target.value)}
-      />
-      <input
-        type="number"
-        value={notaTwo}
-        onChange={({ target }) => setNotoTwo(target.value)}
-      />
-      <button onClick={calcularMedia}>calcular notar</button>
+      {preco}
+      <input type="text" value={produto} onChange={handleChange} />
+      <button onClick={mostrarPreco}>Mostrar preco</button>
     </div>
   );
 }
 
-export default Ex05;
+export default Ex07;
