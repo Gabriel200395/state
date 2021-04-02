@@ -1,4 +1,4 @@
-import { useDebugValue, useState } from "react";
+import { useState } from "react";
 
 function Ex07() {
   const [produtos, setProdutos] = useState([
