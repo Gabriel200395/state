@@ -10,7 +10,7 @@ function Ex10() {
     let ajuste1 = 0.2;
     let ajuste2 = 0.15;
     let ajuste3 = 0.1;
-    let ajuste4 = 0.5;
+    let ajuste4 = 0.05;
 
     if (salario <= 280) {
       const ajusteSalario = +salario * ajuste1;
