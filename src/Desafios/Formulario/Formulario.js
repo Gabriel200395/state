@@ -7,10 +7,10 @@
 //input
 //desafio final
 
-import RadioProps from "./Radio/RadioProps";
+import SelectProps from "./Select/SelectProps";
 
 function Formulario() {
-  return <RadioProps />;
+  return <SelectProps />;
 }
 
 export default Formulario;
