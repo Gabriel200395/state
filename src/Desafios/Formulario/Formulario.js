@@ -1,16 +1,16 @@
 //radio ok
 //select ok
 //formulario ok
-//validando dados
+//validando dados ok
 //textarea
 //checkbox
 //input
 //desafio final
 
-import Form from "./Form/Form";
+import ValidandoProps from "./Validando /ValidandoProps";
 
 function Formulario() {
-  return <Form />;
+  return <ValidandoProps />;
 }
 
 export default Formulario;
