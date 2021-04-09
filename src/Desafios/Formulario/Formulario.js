@@ -7,7 +7,7 @@
 //input ok
 //desafio final
 
-import CheckProps from "./Input/Input";
+import CheckProps from "./Desafio/DesafioForm";
 
 function Formulario() {
   return <CheckProps />;
