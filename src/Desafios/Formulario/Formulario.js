@@ -2,15 +2,15 @@
 //select ok
 //formulario ok
 //validando dados ok
-//textarea
-//checkbox
-//input
+//textarea ok
+//checkbox ok
+//input ok
 //desafio final
 
-import ValidandoProps from "./Validando /ValidandoProps";
+import CheckProps from "./Input/Input";
 
 function Formulario() {
-  return <ValidandoProps />;
+  return <CheckProps />;
 }
 
 export default Formulario;
