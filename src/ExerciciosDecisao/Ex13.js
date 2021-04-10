@@ -1,137 +1,44 @@
 import { useState } from "react";
 
-function Ex11() {
-  const [salario, setSalario] = useState("");
+function Ex13() {
+  const [materia, setMateria] = useState({ materia1: "", materia2: "" });
+  const [mediaNota, setMediaNota] = useState("");
 
-  const [ir, setIr] = useState("");
-  const [valorIr, setValorIr] = useState("");
+  function handleChange({ target }) {
+    setMateria({ ...materia, [target.name]: target.value });
+  }
 
-  const [fgts, setFgts] = useState("");
-  const [valorFgts, setValorFgts] = useState("");
+  function handleClick() {
+    const { materia1, materia2 } = materia;
+    const media = (+materia1 + +materia2) / 2;
 
-  const [inss, setInss] = useState("");
-  const [valorInss, setValorInss] = useState("");
-
-  const [descontos, setDescontos] = useState("");
-  const [liquido, setLiquido] = useState("");
-
-  function novoSalario() {
-    const ajuste1 = 0.05;
-    const ajuste2 = 0.1;
-    const ajuste3 = 0.2;
-    const ajusteInss = 0.1;
-    const ajusteFgts = 0.11;
-
-    if (salario <= 900) {
-      setValorIr("nenhum desconto");
-      setIr(0);
-      setValorFgts("nenhum desconto");
-      setFgts(0);
-      setValorInss("nenhum desconto");
-      setInss(0);
-      setDescontos("nenhum desconto");
-      setLiquido(salario);
-    } else if (salario > 900 && salario <= 1500) {
-      const calcular = +salario * ajuste1;
-      const calcular1 = +salario * ajusteInss;
-      const calcular2 = +salario * ajusteFgts;
-      const total = calcular + calcular1;
-      setIr(ajuste1);
-      setValorIr(calcular);
-      setInss(ajusteInss);
-      setValorInss(calcular1);
-      setFgts(ajusteFgts);
-      setValorFgts(calcular2);
-      setDescontos(total);
-      setLiquido(+salario - total);
-    } else if (salario > 1500 && salario <= 2500) {
-      const calcular = +salario * ajuste2;
-      const calcular1 = +salario * ajusteInss;
-      const calcular2 = +salario * ajusteFgts;
-      const total = calcular + calcular1;
-      setIr(ajuste2);
-      setValorIr(calcular);
-      setInss(ajusteInss);
-      setValorInss(calcular1);
-      setFgts(ajusteFgts);
-      setValorFgts(calcular2);
-      setDescontos(total);
-      setLiquido(+salario - total);
-    } else if (salario > 2500) {
-      const calcular = +salario * ajuste3;
-      const calcular1 = +salario * ajusteInss;
-      const calcular2 = +salario * ajusteFgts;
-      const total = calcular + calcular1;
-      setIr(ajuste3);
-      setValorIr(calcular);
-      setInss(ajusteInss);
-      setValorInss(calcular1);
-      setFgts(ajusteFgts);
-      setValorFgts(calcular2);
-      setDescontos(total);
-      setLiquido(+salario - total);
-    }
+    media > 9 && media <= 10 && setMediaNota("A parabens você foi aprovado!");
+    media > 7.5 && media <= 9 && setMediaNota("B parabens você foi aprovado!");
+    media > 6.0 &&
+      media <= 7.5 &&
+      setMediaNota("C parabens você foi aprovado!");
+    media > 4 && media <= 6 && setMediaNota("D você foi reprovado!");
+    media > 0 && media <= 4 && setMediaNota("E você foi reprovado!");
   }
 
   return (
     <div>
-      <>
-        <p>
-          o seu salario antes descontos
-          <br />
-          {salario.toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-          })}
-        </p>
-        <p>
-          Ir: {ir}
-          <br />
-          {valorIr.toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-          })}
-        </p>
-        <p>
-          Inss: {inss}
-          <br />
-          {valorInss.toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-          })}
-        </p>
-        <p>
-          fgts: {fgts}
-          <br />
-          {valorFgts.toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-          })}
-        </p>
-        <p>
-          desconstos:
-          <br />
-          {descontos.toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-          })}
-        </p>
-        <p>
-          salario liquido{" "}
-          {liquido.toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-          })}{" "}
-        </p>
-      </>
+      {mediaNota}
       <input
         type="number"
-        value={salario}
-        onChange={({ target }) => setSalario(target.value)}
+        name="materia1"
+        value={materia.materia1}
+        onChange={handleChange}
       />
-      <button onClick={novoSalario}>verificar salario</button>
+      <input
+        type="number"
+        name="materia2"
+        value={materia.materia2}
+        onChange={handleChange}
+      />
+      <button onClick={handleClick}>Calcular Nota</button>
     </div>
   );
 }
 
-export default Ex11;
+export default Ex13;
