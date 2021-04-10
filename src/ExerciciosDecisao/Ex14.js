@@ -21,7 +21,7 @@ function Ex14() {
       setTipoTriangulo("Triangulo");
     } else if (+lado1 === +lado2) {
       setTipoTriangulo("Isoceles");
-    } else if ((+lado1 != lado2) != lado3) {
+    } else if ((+lado1 != +lado2) != lado3) {
       setTipoTriangulo("Escalano");
     }
   }
