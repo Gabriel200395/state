@@ -1,8 +1,8 @@
-import Desafios from "./Desafios/Formulario/Formulario";
+import Ex12 from "./ExerciciosDecisao/Ex12";
 function App() {
   return (
     <>
-      <Desafios />
+      <Ex12 />
     </>
   );
 }
