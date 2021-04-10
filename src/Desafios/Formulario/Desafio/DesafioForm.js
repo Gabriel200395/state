@@ -51,7 +51,7 @@ function DesafioForm() {
       ({ id, resposta }) => state[id] === resposta
     );
 
-    setResposta(" voce acertou " + corretas.length + " de " + corretas.length);
+    setResposta(" voce acertou " + corretas.length + " de " + perguntas.length);
   }
 
   function handleClick() {

@@ -5,7 +5,7 @@
 //textarea ok
 //checkbox ok
 //input ok
-//desafio final
+//desafio final ok
 
 import CheckProps from "./Desafio/DesafioForm";
 
