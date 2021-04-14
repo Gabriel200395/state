@@ -17,6 +17,23 @@ function Ex06() {
 
     setInicio("");
     setFim("");
+    document.querySelector("#res1").innerHTML = "";
+  }
+
+  function handleClick1() {
+    const response = document.querySelector("#res1");
+
+    if (inicio.length === 0 || fim.length === 0) {
+      console.log("erro");
+    } else {
+      for (let i = +inicio; i <= fim; i++) {
+        response.innerHTML += `<p style="margin: 0px 15px">${i}</p>`;
+      }
+    }
+
+    setInicio("");
+    setFim("");
+    document.querySelector("#res").innerHTML = "";
   }
 
   return (
@@ -38,8 +55,10 @@ function Ex06() {
         />
       </label>
       <button onClick={handleClick}>Contar</button>
+      <button onClick={handleClick1}>um lado do outro</button>
 
       <div id="res"></div>
+      <div id="res1" style={{ display: "flex" }}></div>
     </div>
   );
 }
