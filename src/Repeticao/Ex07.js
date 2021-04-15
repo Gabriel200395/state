@@ -1,39 +1,39 @@
 import { useState } from "react";
 
-function Ex02() {
-  const [nome, setNome] = useState("");
-  const [senha, setSenha] = useState("");
+function Ex07() {
+  const [numero, setNumero] = useState("");
+  const [receberNumero, setReceberNumero] = useState([]);
+  const [maior, setMaior] = useState("");
 
-  function handleClick() {
-    const n = nome.split(" ");
-    const s = senha.split(" ");
+  function handleAddNumero() {
+    setReceberNumero([...receberNumero, +numero]);
+  }
 
-    for (let i = 0; i < n.length; i++) {
-      for (let i = 0; i < s.length; i++) {
-        if (n[i] === s[i]) {
-          console.log("senha Invalidar");
-        } else {
-          console.log("senha validar");
-        }
+  function handleMaiorNumero() {
+    let maiorNumero = receberNumero[0];
+
+    for (let i = 0; i < receberNumero.length; i++) {
+      if (receberNumero[i] > maiorNumero) {
+        maiorNumero = receberNumero[i];
       }
     }
+    setMaior(maiorNumero);
   }
 
   return (
-    <div>
-      <input
-        type="text"
-        value={nome}
-        onChange={({ target }) => setNome(target.value)}
-      />
-      <input
-        type="text"
-        value={senha}
-        onChange={({ target }) => setSenha(target.value)}
-      />
-      <button onClick={handleClick}>verificar</button>
-    </div>
+    <>
+      <form onSubmit={(event) => event.preventDefault()}>
+        <input
+          type="number"
+          value={numero}
+          onChange={({ target }) => setNumero(target.value)}
+        />
+        <button onClick={handleAddNumero}>Add Numero</button>
+        <button onClick={handleMaiorNumero}>Maior Numero</button>
+        {maior}
+      </form>
+    </>
   );
 }
 
-export default Ex02;
+export default Ex07;
