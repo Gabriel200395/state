@@ -1,4 +1,4 @@
-import Ex12 from "./Repeticao/Ex09";
+import Ex12 from "./Repeticao/Ex11";
 function App() {
   return (
     <>

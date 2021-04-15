@@ -1,32 +1,26 @@
 import { useState } from "react";
 
 function Ex09() {
-  const [inicio, setIncio] = useState("");
-  const [fim, setFim] = useState("");
+  const [numero, setNumero] = useState("");
 
   function handleNumeroImaprares() {
     const resposta = document.querySelector("#numero");
-    for (let i = +inicio; i <= +fim; i++) {
-      resposta.innerHTML += `<p style="margin:0px 10px">${i}</p>`;
+    for (let i = 0; i <= +numero; i++) {
+      if (i % 2 === 0) {
+        resposta.innerHTML += `<p style="margin:0px 10px">${i}</p>`;
+      }
     }
   }
 
   return (
     <>
       <form onSubmit={(event) => event.preventDefault()}>
-        inicio
         <input
           type="number"
-          value={inicio}
-          onChange={({ target }) => setIncio(target.value)}
+          value={numero}
+          onChange={({ target }) => setNumero(target.value)}
         />
-        inicio
-        <input
-          type="number"
-          value={fim}
-          onChange={({ target }) => setFim(target.value)}
-        />
-        <button onClick={handleNumeroImaprares}>passo a passo</button>
+        <button onClick={handleNumeroImaprares}>numeros impares</button>
         <div id="numero" style={{ display: "flex" }}></div>
       </form>
     </>

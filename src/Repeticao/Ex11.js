@@ -1,14 +1,17 @@
 import { useState } from "react";
 
-function Ex10() {
+function Ex11() {
   const [inicio, setIncio] = useState("");
   const [fim, setFim] = useState("");
 
   function handleNumeroImaprares() {
     const resposta = document.querySelector("#numero");
+    let total = 0;
     for (let i = +inicio; i <= +fim; i++) {
-      resposta.innerHTML += `<p style="margin:0px 10px">${i}</p>`;
+      total += i;
     }
+
+    resposta.innerHTML = "esse e o total da soma entre os numeros  " + total;
   }
 
   return (
@@ -26,11 +29,11 @@ function Ex10() {
           value={fim}
           onChange={({ target }) => setFim(target.value)}
         />
-        <button onClick={handleNumeroImaprares}>passo a passo</button>
+        <button onClick={handleNumeroImaprares}>total</button>
         <div id="numero" style={{ display: "flex" }}></div>
       </form>
     </>
   );
 }
 
-export default Ex10;
+export default Ex11;
