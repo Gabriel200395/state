@@ -30,7 +30,6 @@ function Ex08() {
     }
   }
 
-  console.log(receberNumero);
   return (
     <>
       <form onSubmit={(event) => event.preventDefault()}>
