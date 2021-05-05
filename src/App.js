@@ -1,4 +1,4 @@
-import Ex12 from "./Frutaria/Frutaria";
+import Ex12 from "./Ebooks/Calculadora";
 function App() {
   return (
     <>

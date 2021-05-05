@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 
 const arrayFrutas = [
   { item: "1", fruta: "banana", preco: 1.99 },
